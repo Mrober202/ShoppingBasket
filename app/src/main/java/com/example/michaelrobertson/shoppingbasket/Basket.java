@@ -9,9 +9,14 @@ import java.util.ArrayList;
 public class Basket {
 
     private ArrayList<Item> contents;
+    private Customer customer;
     private Item item;
+    double total = 0;
+    double totalD = 0;
+    double totalMember = 0;
 
     public Basket() {
+        customer = new Customer(true);
         contents = new ArrayList<Item>();
         contents.add(new Item(10, "Sugar"));
         contents.add(new Item(10, "Sugar"));
@@ -39,13 +44,26 @@ public class Basket {
         contents.clear();
     }
 
-    public int getBasketTotal(){
-        int total = 0;
+    public double getBasketTotal(){
         int itemPrice;
         for (Item item : contents){
             itemPrice = item.getPrice();
             total = total + itemPrice;
         }
         return total;
+    }
+
+    public double twentyPercentDiscount() {
+        if (total >= 20) {
+            return totalD = total * 0.8;
+        }
+        return totalD;
+    }
+
+    public double memberDiscount() {
+        if (customer.customerHasCard()) {
+            return totalMember = totalD * 0.98;
+        }
+        return totalMember;
     }
 }

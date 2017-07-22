@@ -37,11 +37,21 @@ public class BasketTest {
         assertEquals(0, basket.numberOfItemsInBasket());
     }
 
-
     @Test
     public void testCanGetTotal() throws Exception {
-        assertEquals(25, basket.getBasketTotal());
+        assertEquals(25, basket.getBasketTotal(), 0);
     }
 
+    @Test
+    public void testCanApplyTwentyPercentDiscount() throws Exception {
+        basket.getBasketTotal();
+        assertEquals(20, basket.twentyPercentDiscount(), 0);
+    }
 
+    @Test
+    public void testCustomerCard() throws Exception {
+        basket.getBasketTotal();
+        basket.twentyPercentDiscount();
+        assertEquals(19.6, basket.memberDiscount(), 0);
+    }
 }
