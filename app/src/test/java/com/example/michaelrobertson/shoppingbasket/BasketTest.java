@@ -32,6 +32,15 @@ public class BasketTest {
         basket.addToBasket();
         basket.removeFromBasket();
         assertEquals(1, basket.numberOfItemsInBasket());
-
     }
+
+    @Test
+    public void testCanEmptyBasket() throws Exception {
+        basket.addToBasket();
+        basket.addToBasket();
+        basket.emptyBasket();
+        assertEquals(0, basket.numberOfItemsInBasket());
+    }
+
+
 }

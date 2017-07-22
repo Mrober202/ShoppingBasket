@@ -32,4 +32,7 @@ public class Basket {
         contents.remove(item);
     }
 
+    public void emptyBasket() {
+        contents.clear();
+    }
 }
