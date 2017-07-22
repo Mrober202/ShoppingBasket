@@ -13,6 +13,9 @@ public class Basket {
 
     public Basket() {
         contents = new ArrayList<Item>();
+        contents.add(new Item(10, "Sugar"));
+        contents.add(new Item(10, "Sugar"));
+        contents.add(new Item(5, "Beer"));
     }
 
     public ArrayList<Item> getContents() {
@@ -34,5 +37,15 @@ public class Basket {
 
     public void emptyBasket() {
         contents.clear();
+    }
+
+    public int getBasketTotal(){
+        int total = 0;
+        int itemPrice;
+        for (Item item : contents){
+            itemPrice = item.getPrice();
+            total = total + itemPrice;
+        }
+        return total;
     }
 }
